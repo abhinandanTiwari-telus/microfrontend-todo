@@ -1,15 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Todo from "./container/Todo";
+import Todo from "todo/Todo";
+import "./index.css";
 
-const App = () => {
-  return (
-    <div className="my-10">
-      <Todo />
-    </div>
-  );
-};
-
+const App = () => (
+  <div className="container">
+    <h3>Get Todos Comp</h3>
+    <Todo />
+  </div>
+);
 const rootElement = document.getElementById("app");
 if (!rootElement) throw new Error("Failed to find the root element");
 

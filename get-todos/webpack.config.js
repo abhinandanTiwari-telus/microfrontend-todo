@@ -4,7 +4,7 @@ const Dotenv = require("dotenv-webpack");
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:3001/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3000,
+    port: 3001,
     historyApiFallback: true,
   },
 
@@ -41,7 +41,7 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "todo",
+      name: "get_todos",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {},
@@ -56,8 +56,8 @@ module.exports = (_, argv) => ({
           requiredVersion: deps["react-dom"],
         },
       },
-      exposes: {
-        "./Todo": "./src/container/Todo.tsx",
+      remotes: {
+        todo: "todo@http://localhost:3000/remoteEntry.js",
       },
     }),
     new HtmlWebPackPlugin({
