@@ -7,9 +7,7 @@ const NewTodoForm = ({ onSubmit, filterHandler, filter }) => {
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (newItem === "") return;
-
     onSubmit(newItem);
-
     setNewItem("");
   };
 

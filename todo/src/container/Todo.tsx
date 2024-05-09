@@ -19,6 +19,7 @@ const Todo = () => {
   });
   const [filter, setFilter] = useState("all");
 
+  //Loading data from the localStorage
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(todos));
   }, [todos]);
@@ -61,9 +62,9 @@ const Todo = () => {
   });
 
   const handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setFilter(e.target.value);
   };
+
   return (
     <>
       <NewTodoForm
